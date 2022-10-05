@@ -7,14 +7,15 @@ const Add = () => {
   const [book, setBook] = useState({
     title: "",
     desc: "",
-    price: null,
+    price: "",
     cover: "",
   });
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     setBook((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
+  console.log(book);
   const handleClick = async (e) => {
     e.preventDefault();
     try {
@@ -44,7 +45,7 @@ const Add = () => {
         type="number"
         placeholder="price"
         onChange={handleChange}
-        name="desc"
+        name="price"
       />
       <input
         type="text"
@@ -52,7 +53,9 @@ const Add = () => {
         onChange={handleChange}
         name="cover"
       />
-      <button onClick={handleClick}>Add Book</button>
+      <button className="formButton" onClick={handleClick}>
+        Add Book
+      </button>
     </div>
   );
 };
